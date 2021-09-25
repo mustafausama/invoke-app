@@ -63,6 +63,7 @@ function App() {
           vokes={vokes}
           notifications={notifications}
         />
+        {process.env.REACT_APP_API_PATH}
         <Switch>
           <Route exact path="/">
             <Home auth={auth} />

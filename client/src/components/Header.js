@@ -71,17 +71,18 @@ const Header = ({ auth: { auth, username }, logout, vokes, notifications }) => {
                 Vokes
               </DropdownToggle>
               <DropdownMenu right>
-                {vokes.map((voke) => (
-                  <DropdownItem key={voke._id}>
-                    <NavLink
-                      to={"/voke/" + voke._id}
-                      className="nav-link"
-                      activeClassName="active"
-                    >
-                      {voke.title}
-                    </NavLink>
-                  </DropdownItem>
-                ))}
+                {vokes &&
+                  vokes.map((voke) => (
+                    <DropdownItem key={voke._id}>
+                      <NavLink
+                        to={"/voke/" + voke._id}
+                        className="nav-link"
+                        activeClassName="active"
+                      >
+                        {voke.title}
+                      </NavLink>
+                    </DropdownItem>
+                  ))}
               </DropdownMenu>
             </UncontrolledDropdown>
             <UncontrolledDropdown nav inNavbar>
