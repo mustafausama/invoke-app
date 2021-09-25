@@ -166,6 +166,9 @@ class Home extends Component {
                 </Col>
               </Row>
               {voke.body && <ListGroupItemText>{voke.body}</ListGroupItemText>}
+              <ListGroupItemText>
+                Radius: {voke.radius / 1000}km
+              </ListGroupItemText>
             </ListGroupItem>
           ))}
         </ListGroup>
