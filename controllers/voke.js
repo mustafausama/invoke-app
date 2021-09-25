@@ -6,11 +6,10 @@ const Voke = require("../models/Voke");
 const ErrorResponse = require("../utils/ErrorResponse");
 
 module.exports.postVoke = async (req, res, next) => {
-  const { title, body, location } = req.body;
+  const { title, body, location, radius } = req.body;
 
   const { user } = req;
   try {
-    console.log(req.body);
     const voke = await Voke.create({
       title,
       body,
@@ -20,7 +19,8 @@ module.exports.postVoke = async (req, res, next) => {
             coordinates: [location.longitude, location.latitude]
           }
         : null,
-      authors: [new ObjectId(user.id)]
+      authors: [new ObjectId(user.id)],
+      radius
     });
     res.status(201).json({ success: true, voke });
   } catch (error) {

@@ -34,7 +34,6 @@ function App() {
     axios
       .get(process.env.REACT_APP_API_PATH + "/api/invokes/invoke/notifications")
       .then((res) => {
-        console.log(res);
         setNotifications(res.data.notifications);
       })
       .catch((error) => console.log(error));
@@ -67,21 +66,19 @@ function App() {
           <Route exact path="/">
             <Home auth={auth} />
           </Route>
-          {!auth.auth && (
-            <>
-              <Route exact path="/register">
-                <Register login={login} />
-              </Route>
-              <Route exact path="/login">
-                <Login login={login} />
-              </Route>
-            </>
-          )}
+          <Route exact path="/register">
+            {!auth.auth ? <Register login={login} /> : <Redirect to="/" />}
+          </Route>
+          <Route exact path="/login">
+            {!auth.auth ? <Login login={login} /> : <Redirect to="/" />}
+          </Route>
           <Route
             exact
             path="/voke/:vokeId"
             render={(props) => (
-              <Voke key={props.match.params.vokeId} {...props} auth={auth} />
+              <>
+                <Voke key={props.match.params.vokeId} {...props} auth={auth} />
+              </>
             )}
           />
           <Redirect from="/" to="/" />

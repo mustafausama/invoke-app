@@ -53,7 +53,6 @@ class Home extends Component {
     axios
       .get(process.env.REACT_APP_API_PATH + "/api/invokes/voke/all/")
       .then((res) => {
-        console.log(res);
         this.setState({ vokes: res.data.vokes });
       })
       .catch((err) => console.log(err));

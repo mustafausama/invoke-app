@@ -53,7 +53,6 @@ UserSchema.methods.matchPassword = async function (password) {
 };
 
 UserSchema.methods.getSignedToken = function () {
-  console.log(this.role);
   return jwt.sign(
     { id: this._id, username: this.username, role: this.role },
     process.env.secretOrKey,
