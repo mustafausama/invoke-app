@@ -1,0 +1,35 @@
+{
+  "name": "invoke",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.13"
+  },
+  "dependencies": {
+    "axios": "^0.21.4",
+    "bcryptjs": "^2.4.3",
+    "concurrently": "^6.2.1",
+    "cors": "^2.8.5",
+    "country-list": "^2.2.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "geolib": "^3.3.1",
+    "is-empty-object": "^1.1.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.0.7",
+    "password-validator": "^5.1.1",
+    "socket.io": "^4.2.0",
+    "uuid": "^8.3.2",
+    "validator": "^13.6.0"
+  }
+}
